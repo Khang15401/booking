@@ -2,6 +2,7 @@ import {
   faBed,
   faCalendarDays,
   faCar,
+  faEarthAmerica,
   faPerson,
   faPlane,
   faTaxi,
@@ -14,7 +15,7 @@ import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import {format} from "date-fns"
 
-const Header = () => {
+const Header = ({type}) => {
   const [openDate, setOpenDate] = useState(false)
   const [date, setDate] = useState([
     {
@@ -37,31 +38,31 @@ const Header = () => {
   }
   return (
     <div className="header">
-      <div className="headerContainer">
-
+      <div className={type === "list" ? "headerContainer listMode" : "headerContainer" }>
         <div className="headerList">
           <div className="headerListItem active">
               <FontAwesomeIcon icon={faBed} />
-              <span>Chỗ Nghỉ</span>
+              <span>Lưu trú</span>
             </div>
             <div className="headerListItem">
               <FontAwesomeIcon icon={faPlane} />
-              <span>Chuyến Bay</span>
+              <span>Chuyến bay</span>
             </div>
             <div className="headerListItem">
               <FontAwesomeIcon icon={faCar} />
-              <span>Thuê Phương Tiện</span>
+              <span>Thuê Xe</span>
             </div>
             <div className="headerListItem">
-              <FontAwesomeIcon icon={faBed} />
-              <span>Danh Lam</span>
+              <FontAwesomeIcon icon={faEarthAmerica} />
+              <span>Địa điểm tham quan</span>
             </div>
             <div className="headerListItem">
               <FontAwesomeIcon icon={faTaxi} />
-              <span>Taxi Sân Bay</span>
+              <span>Taxi sân bay</span>
             </div>
         </div>
-        <h1 className="headerTitle">
+        { type !== "list" &&
+          <><h1 className="headerTitle">
               Luôn luôn giảm giá, mang lại trải nghiệm tốt nhất cho khách hàng.
             </h1>
             <p className="headerDesc">
@@ -91,8 +92,8 @@ const Header = () => {
               </div>
               <div className="headerSearchItem">
                 <FontAwesomeIcon className="headerIcon" icon={faPerson}  />
-                <span className="headerSearchText">{`${options.Người_Lớn} Người Lớn . ${options.Trẻ_Em} Trẻ Em . ${options.Phòng} Phòng `}</span>
-                  <div className="options">
+                <span onClick={()=>setOpenOptions(!openOptions)} className="headerSearchText">{`${options.Người_Lớn} Người Lớn . ${options.Trẻ_Em} Trẻ Em . ${options.Phòng} Phòng `}</span>
+                  {openOptions && <div className="options">
                     <div className="optionItem">
                       <span className="optionText">Người Lớn</span>
                       <div className="optionCounter">
@@ -118,12 +119,12 @@ const Header = () => {
                         <button className="optionCounterButton" onClick={()=>handleOption("Phòng", "i")}>+</button>
                       </div>
                     </div>
-                  </div>
+                  </div>}
               </div>
               <div className="headerSearchItem">
                 <button className="headerBtn">Tìm kiếm</button>
               </div>
-            </div>
+            </div></>}
       </div>
     </div>
   )
