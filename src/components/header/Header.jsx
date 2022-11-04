@@ -14,8 +14,10 @@ import { useState } from "react";
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import {format} from "date-fns"
+import {useNavigate} from "react-router-dom"
 
 const Header = ({type}) => {
+  const [destination, setDestination] = useState("")
   const [openDate, setOpenDate] = useState(false)
   const [date, setDate] = useState([
     {
@@ -29,12 +31,18 @@ const Header = ({type}) => {
     Người_Lớn: 1,
     Trẻ_Em:0,
     Phòng:1,
-  })
+  });
+
+  const navigate = useNavigate()
 
   const handleOption = (ten, hoatdong) =>{
     setOptions(prev=>{return{
       ...prev, [ten]: hoatdong === "i" ? options[ten] + 1 : options[ten] - 1,
     }})
+  };
+
+  const handleSearch = ()=>{
+    navigate("hotels", {state:{ destination, date, options }})
   }
   return (
     <div className="header">
@@ -75,19 +83,21 @@ const Header = ({type}) => {
                 <input 
                   type="text" placeholder="Nơi bạn muốn đến ?" 
                   className="headerSearchInput" 
+                  onChange={e=>setDestination(e.target.value)}
                 />
               </div>
               <div className="headerSearchItem">
                 <FontAwesomeIcon className="headerIcon" icon={faCalendarDays} />
                 <span onClick={()=>setOpenDate(!openDate)} className="headerSearchText">{`${format
-                (date[0].startDate, "MM/dd/yyyy")} 
-                to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
+                (date[0].startDate, "dd/MM/yyyy")} 
+                đến ${format(date[0].endDate, "dd/MM/yyyy")}`}</span>
                 {openDate && <DateRange
                   editableDateInputs={true}
                   onChange={item => setDate([item.selection])}
                   moveRangeOnFirstSelection={false}
                   ranges={date}
                   className="date"
+                  minDate={new Date()}
                 />}
               </div>
               <div className="headerSearchItem">
@@ -122,7 +132,7 @@ const Header = ({type}) => {
                   </div>}
               </div>
               <div className="headerSearchItem">
-                <button className="headerBtn">Tìm kiếm</button>
+                <button className="headerBtn" onClick={handleSearch}>Tìm kiếm</button>
               </div>
             </div></>}
       </div>

@@ -4,34 +4,34 @@ const Special = () => {
   return (
     <div className="special">
       <div className="specialItem">
-        <img src="https://cf.bstatic.com/xdata/images/city/max500/957801.webp?k=a969e39bcd40cdcc21786ba92826063e3cb09bf307bcfeac2aa392b838e9b7a5&o=" alt="" className="specialImg" />
+        <img src="https://cf.bstatic.com/xdata/images/city/600x500/688849.jpg?k=c1f2770a0c096aeb09a6956a9754abbb61b946a932601a4a02bb6aa42d7fa74a&o=" alt="" className="specialImg" />
         <div className="specialTitles">
-            <h1>King King</h1>
-            <h2>456 properties</h2>
+            <h1>Hà Nội</h1>
+            <h2>50 địa điểm</h2>
         </div>
       </div>
 
       <div className="specialItem">
         <img
-          src="https://cf.bstatic.com/xdata/images/city/max500/690334.webp?k=b99df435f06a15a1568ddd5f55d239507c0156985577681ab91274f917af6dbb&o="
+          src="https://cf.bstatic.com/xdata/images/city/600x500/688892.webp?k=ab98c6d1cae80333bbd3129cfeb692f9fd1b17caa359d2fb4fdf35a4160e5ccf&o="
           alt=""
           className="specialImg"
         />
         <div className="specialTitles">
-          <h1>Reno</h1>
-          <h2>533 properties</h2>
+          <h1>TP. Hồ Chí Minh</h1>
+          <h2>231 địa điểm</h2>
         </div>
       </div>
 
       <div className="specialItem">
         <img
-          src="https://cf.bstatic.com/xdata/images/city/max500/689422.webp?k=2595c93e7e067b9ba95f90713f80ba6e5fa88a66e6e55600bd27a5128808fdf2&o="
+          src="https://cf.bstatic.com/xdata/images/city/600x500/688906.webp?k=6b660c5d295f53392879d35893e48b7cf96be8311cca62eb903eaaed02090ad2&o="
           alt=""
           className="specialImg"
         />
         <div className="specialTitles">
-          <h1>Reno</h1>
-          <h2>533 properties</h2>
+          <h1>Nha Trang</h1>
+          <h2>78 địa điểm</h2>
         </div>
       </div>
     </div>

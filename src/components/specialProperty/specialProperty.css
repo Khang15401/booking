@@ -29,11 +29,11 @@
     font-weight: 500;
 }
 
-.spTile>span{
-    font-size: 14;
+.spTitle>span{
+    font-size: 14px;
 }
 
-.spTile>button{
+.spTitle>button{
     background-color: #003580;
     color: white;
     border:none;
@@ -41,4 +41,6 @@
     padding: 4px;
     margin-right: 9px;
 }
+
+
 
